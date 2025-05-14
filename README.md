@@ -10,7 +10,7 @@
 
 Short and sweet, easy to audit HTML file!
 
-Note: This pulls in the CDN version of [Surreal](https://github.com/gnat/surreal) and [Tailwind](https://github.com/tailwindlabs/tailwindcss)
+Note: This uses the CDN version of [Surreal](https://github.com/gnat/surreal) and [Tailwind](https://github.com/tailwindlabs/tailwindcss)
 
 ## 💡 Why does this exist?
 * Windows 11 removed the "Use the following text to preview the voice" feature. 🙁
