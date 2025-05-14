@@ -19,6 +19,8 @@ Note: This uses the CDN version of [Surreal](https://github.com/gnat/surreal) an
 * Windows 11 removed the "Use the following text to preview the voice" feature. 🙁
 * Security! `espeak-ng` is russian maintained now, so into the trash it goes.
 * Security! `espeak` for windows is only available on sourceforge which is dubious nowadays.
+* Remembers your settings!
+* Works on phones!
 
 ## 🐧 A linux version would be nice!
 Check out our sister project based on qt6: https://github.com/gnat/text-to-speech-ubuntu
