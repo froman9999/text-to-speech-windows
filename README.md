@@ -1,6 +1,7 @@
 # Text to Speech (TTS) HTML GUI for Windows 11
 
-![image](https://github.com/user-attachments/assets/48d05819-071b-4426-b1b8-9c963b8be63a)
+![image](https://github.com/user-attachments/assets/0e067095-f060-46b6-8dac-9c5772a9fc54)
+
 
 
 ## 🎁 Installation
