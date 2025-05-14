@@ -1,15 +1,15 @@
 <html>
 	<head>
-		<title>Text to Speech GUI / TTS</title>
+		<title>💬 Text to Speech GUI / TTS</title>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 		<script src="https://cdn.jsdelivr.net/gh/gnat/surreal@main/surreal.js"></script>
 		<style>@layer base { d { display: block; } s { display: inline; text-decoration: none; } }</style> <!-- ffs, tailwind -->
 	</head>
-	<body class="m-2 bg-neutral-900 text-[#aaa]">
-		<d class="rounded-xl bg-neutral-800 px-4 py-3">
+	<body class="bg-neutral-900 text-[#aaa]">
+		<d class="rounded-xl bg-neutral-800 px-4 py-3 m-8">
 			<form class="space-y-3 px-2 py-2">
-				<d class="text-xl">Text to Speech</d>
-				<textarea id="txt" type="text" class="txt border-1 border-solid border-neutral-700 rounded-sm bg-neutral-700 text-[#ccc] w-full h-[400px] px-4 py-3" placeholder="Enter text here"></textarea>
+				<d class="text-xl">💬 Text to Speech</d>
+				<textarea id="txt" type="text" class="txt border-1 border-solid border-neutral-700 rounded-sm bg-neutral-700 text-[#ccc] w-full h-[400px] px-4 py-3" placeholder="Paste or write text here"></textarea>
 				<d class="flex flex-row items-center [&>*]:mr-3">
 					<d for="rate">Speed</d>
 					<input type="range" min="0.5" max="10" value="2" step="0.1" id="rate" class="cursor-pointer" />
@@ -21,11 +21,11 @@
 					<d class="pitch-value">1</d>
 				</d>
 				<d class="flex flex-row items-center [&>*]:mr-3">
-					<d>👤</d> <select class="voice_select rounded-sm border-2 border-gray-200 px-2 py-1"></select>
+					<d>👤</d> <select class="voice_select rounded-sm border-2 border-neutral-600 px-2 py-1"></select>
 				</d>
 				<d class="flex flex-row items-center [&>*]:mr-3">
-					<button class="bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 pl-3 border border-neutral-700 rounded cursor-pointer" id="play">💬 Speak</button>
-					<button class="bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 pl-3 border border-neutral-700 rounded cursor-pointer" id="stop">🛑 Stop</button>
+					<button class="bg-neutral-600 hover:bg-neutral-500 text-neutral-200 font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer" id="play">💬 Speak</button>
+					<button class="bg-neutral-700 hover:bg-neutral-500 text-neutral-200 font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer" id="stop">🛑 Stop</button>
 				</d>
 				<script>
 					me().on("submit", ev => {
@@ -85,6 +85,6 @@
 				</script>
 			</form>
 		</d>
-		<d class="text-center py-2"><a href="https://github.com/gnat/text-to-speech-windows" class="hover:text-white"><s class="grayscale">🌐</s><s class="underline">Text To Speech on Github</s></a></d>
+		<d class="text-center py-2"><a href="https://github.com/gnat/text-to-speech-windows" class="hover:text-neutral-200"><s class="grayscale">🌐</s><s class="underline">Text To Speech on Github</s></a></d>
 	</body>
 </html>
