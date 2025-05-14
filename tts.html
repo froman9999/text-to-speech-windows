@@ -3,52 +3,52 @@
 		<title>💬 Text to Speech GUI / TTS</title>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 		<script src="https://cdn.jsdelivr.net/gh/gnat/surreal@main/surreal.js"></script>
-		<style>@layer base { d { display: block; } s { display: inline; text-decoration: none; } }</style> <!-- ffs, tailwind -->
+		<style>@layer base { d { display: block; } s { display: inline; text-decoration: none; } }</style> <!-- ffs, tailwind 4 -->
 	</head>
-	<body class="bg-neutral-900 text-[#aaa]">
+	<body class="bg-neutral-900 text-neutral-200">
 		<d class="rounded-xl bg-neutral-800 px-4 py-3 m-8">
 			<form class="space-y-3 px-2 py-2">
 				<d class="text-xl">💬 Text to Speech</d>
-				<textarea id="txt" type="text" class="txt border-1 border-solid border-neutral-700 rounded-xl shadow-xl bg-neutral-700 text-[#ccc] w-full h-[400px] px-4 py-3" placeholder="Paste or write text here">Paste or write text here</textarea>
+				<textarea type="text" class="content-speak border-1 border-solid border-neutral-700 rounded-xl shadow-xl bg-neutral-700 text-neutral-100 w-full h-[400px] px-4 py-3" placeholder="Paste or write text here">Paste or write text here</textarea>
 				<d class="flex flex-row items-center [&>*]:mr-3">
 					<d for="rate">Speed</d>
-					<input type="range" min="0.5" max="5" value="1" step="0.1" id="rate" class="cursor-pointer" />
+					<input type="range" min="0.5" max="5" value="1" step="0.1" id="rate" class="rate cursor-pointer" />
 					<d class="inline-block rate-value">1</d>
 				</d>
 				<d class="flex flex-row items-center [&>*]:mr-3">
 					<label for="pitch">Pitch</label>
-					<input type="range" min="0" max="2" value="1" step="0.1" id="pitch" class="cursor-pointer" />
+					<input type="range" min="0" max="2" value="1" step="0.1" id="pitch" class="pitch cursor-pointer" />
 					<d class="pitch-value">1</d>
 				</d>
 				<d class="flex flex-row items-center [&>*]:mr-3">
 					<d>👤</d> <select class="voice_select rounded-xl border-2 border-neutral-600 px-2 py-1"></select>
 				</d>
 				<d class="flex flex-row items-center [&>*]:mr-6 mt-6">
-					<button class="bg-neutral-600 hover:bg-gray-600 text-neutral-200 shadow-xl font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer" id="play">💬 Speak</button>
-					<button class="bg-neutral-700 hover:bg-gray-600 text-neutral-200 shadow-xl font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer" id="stop">🛑 Stop</button>
+					<button class="play bg-neutral-600 hover:bg-gray-600 text-neutral-200 shadow-xl font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer">💬 Speak</button>
+					<button class="stop bg-neutral-700 hover:bg-gray-600 text-neutral-200 shadow-xl font-bold py-2 px-4 pl-3 border border-neutral-700 rounded-lg cursor-pointer">🛑 Stop</button>
 				</d>
 				<script>
 					me().on("submit", ev => {
 						ev.preventDefault()
 					})
-					me("#play").on("click", ev => {
+					me(".play").on("click", ev => {
 						ev.preventDefault()
 						speak()
 					})
-					me("#stop").on("click", ev => {
+					me(".stop").on("click", ev => {
 						ev.preventDefault()
 						window.speechSynthesis.cancel()
 					})
-					me("#rate", me()).on("change", ev => {
-						me(".rate-value").textContent = me("#rate").value
-						localStorage.setItem("rate", me("#rate").value)
+					me(".rate", me()).on("change", ev => {
+						me(".rate-value").textContent = me(".rate").value
+						localStorage.setItem("rate", me(".rate").value)
 					})
-					me(".rate-value").textContent = me("#rate").value
-					me("#pitch", me()).on("change", ev => {
-						me(".pitch-value").textContent = me("#pitch").value
-						localStorage.setItem("pitch", me("#pitch").value)
+					me(".rate-value").textContent = me(".rate").value
+					me(".pitch", me()).on("change", ev => {
+						me(".pitch-value").textContent = me(".pitch").value
+						localStorage.setItem("pitch", me(".pitch").value)
 					})
-					me(".pitch-value").textContent = me("#pitch").value
+					me(".pitch-value").textContent = me(".pitch").value
 					me(".voice_select", me()).on("change", ev => {
 						localStorage.setItem("voice", me(".voice_select").options[me(".voice_select").selectedIndex].getAttribute('data-name').toLowerCase())
 					})
@@ -87,8 +87,8 @@
 						// Stop speaking.
 						if (window.speechSynthesis.speaking) window.speechSynthesis.cancel()
 						// Speak.
-						if (me("#txt").value !== "") {
-							let speak = new SpeechSynthesisUtterance(me("#txt").value)
+						if (me(".content-speak").value !== "") {
+							let speak = new SpeechSynthesisUtterance(me(".content-speak").value)
 							let selectedOption = me(".voice_select").selectedOptions[0].getAttribute("data-name")
 							// Use voice selected.
 							for (let i = 0; i < voices.length; i++) {
@@ -97,17 +97,17 @@
 									break
 								}
 							}
-							speak.pitch = me("#pitch").value
-							speak.rate = me("#rate").value
+							speak.pitch = me(".pitch").value
+							speak.rate = me(".rate").value
 							window.speechSynthesis.speak(speak)
 						}
 					}
 					if(localStorage.getItem("pitch")) {
-						me("#pitch").value = localStorage.getItem("pitch")
+						me(".pitch").value = localStorage.getItem("pitch")
 						me(".pitch-value").textContent = localStorage.getItem("pitch")
 					}
 					if(localStorage.getItem("rate")) {
-						me("#rate").value = localStorage.getItem("rate")
+						me(".rate").value = localStorage.getItem("rate")
 						me(".rate-value").textContent = localStorage.getItem("rate")
 					}				
 				</script>
