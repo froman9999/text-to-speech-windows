@@ -1,5 +1,8 @@
 # Text to Speech (TTS) HTML GUI for Windows 11
 
+![image](https://github.com/user-attachments/assets/48d05819-071b-4426-b1b8-9c963b8be63a)
+
+
 ## 🎁 Installation
 1. Save [tts.html](https://raw.githubusercontent.com/gnat/text-to-speech-windows/refs/heads/main/tts.html) to your Desktop.
 2. Drag it into your web browser.
